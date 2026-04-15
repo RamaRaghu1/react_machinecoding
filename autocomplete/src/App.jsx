@@ -6,6 +6,7 @@ function App() {
   const [data, setData] = useState([])
   const [visible, setVisible]=useState(false)
   const [cache, setCache]=useState({})
+  const [highlightIndex, setHighlightIndex] = useState(-1);
   const fetchData = async () => {
 
     if(cache[input]){
@@ -31,10 +32,29 @@ useEffect(()=>{
     <>
       <h1>Autocomplete Searchbar</h1>
       <div>
-        <input type="text" className='search' onChange={(e)=>setInput(e.target.value)} onFocus={()=>setVisible(true)} onBlur={()=>setVisible(false)}/>
+        <input type="text" className='search' onChange={(e)=>setInput(e.target.value)}
+         onFocus={()=>setVisible(true)} onBlur={()=>setVisible(false)}
+          onKeyDown={(e) => {
+    if (e.key === "ArrowDown") {
+      setHighlightIndex((prev) =>
+        prev < data.length - 1 ? prev + 1 : prev
+      );
+    }
+
+    if (e.key === "ArrowUp") {
+      setHighlightIndex((prev) =>
+        prev > 0 ? prev - 1 : prev
+      );
+    }
+
+    if (e.key === "Enter" && highlightIndex >= 0) {
+      setInput(data[highlightIndex].name);
+      setVisible(false);
+    }
+  }}/>
       </div>
       {visible && <div className='result-container'>
-        {data?.map((item)=><span className='result' key={item?.id}>{item?.name}</span>)}
+        {data?.map((item, index)=><span className={`result ${index === highlightIndex ? "active" : ""}`} key={item?.id}>{item?.name}</span>)}
       </div> }
     </>
   )

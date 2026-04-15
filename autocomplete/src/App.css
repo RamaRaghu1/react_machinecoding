@@ -29,3 +29,6 @@ margin: auto;
   cursor: pointer;
   
 }
+.result.active {
+  background-color: #ddd;
+}

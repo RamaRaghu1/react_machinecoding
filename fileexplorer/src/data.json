@@ -1,0 +1,52 @@
+ [
+    {
+      "name": "public",
+     "isFolder": true,
+      "children": [
+        {
+          "name": "index.js",
+         "isFolder": false
+        },
+        {
+          "name": "index.css",
+         "isFolder": false
+        }
+      ]
+    },
+    {
+      "name": "assests",
+     "isFolder": true,
+      "children": [
+        {
+          "name": "index.js",
+         "isFolder": false
+        },
+        {
+          "name": "index.css",
+         "isFolder": false
+        }
+      ]
+    },
+    {
+      "name": "src",
+     "isFolder": true
+    },
+    {
+      "name": "node",
+     "isFolder": true,
+      "children": [
+        {
+          "name": "index.js",
+         "isFolder": false
+        },
+        {
+          "name": "index.css",
+         "isFolder": false
+        }
+      ]
+    },
+    {
+      "name": "package.json",
+     "isFolder": false
+    }
+  ]

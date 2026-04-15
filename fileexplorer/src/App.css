@@ -1,0 +1,14 @@
+body{
+font-family:sans-serif;
+align-items: center;
+}
+.container{
+  align-items: center;
+  text-align:left;
+  padding-left: 20px;
+  
+}
+
+.expand-btn{
+  cursor: pointer;
+}
